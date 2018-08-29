@@ -2,7 +2,7 @@
 <!-- NOTE: the string 'TODO' appears everywhere you need to fill in information. -->
 <html>
 <head>
-<title>TODO:Title For Your Game</title>
+<title>Hex Snake</title>
 <!-- NOTE: this CSS sets up the ".figure" class to center images, and instructs images in ".figure"s to have space around them and to render crisp pixel edges when scaled [e.g. for retina displays]. -->
 <style>
 .figure {
@@ -15,25 +15,57 @@
 </style>
 </head>
 <body>
-<h1>TODO: Title For Your Game</h1>
-<p>TODO: one-sentence summary of your game, highlighting the unique "hook" of the game.</p>
+<h1>Hex Snake</h1>
+<p><a href="https://en.wikipedia.org/wiki/Snake_(video_game_genre)">Snake</a>, except played on a hexagonal grid.</p>
 <!-- the <div> wrapping this image centers it on the page. -->
 <!-- TODO: drawing showing the main view of the game during play -->
 <div class="figure">
-<img src="game.png" />
+<img src="hex-snake-norm.jpg" width="500"/>
 </div>
-<p>TODO: more information (2-3 sentences) about gameplay, referring to the image above.</p>
+<p>The game is played on a 10 by 10 hexagonal grid, at any given point one hex on the board would contain a goal. The player would control a snake which would move at a fixed rate facing forward by changing its heading using the arrow keys. Each time the snake head reaches the goal it would grow by one hex. The game would end when the snake head collides with the board boundary or itself. The player score would be determined by the length of the snake at game end.</p>
 
 <h2>Gameplay</h2>
-<p>TODO: Describe how the game starts, plays (e.g. what are the controls), and ends.</p>
-<!-- TODO: illustrate your descriptions with more drawings -->
+<p><b>Start:</b>
+    At the start of the game the snake would be placed at the center of the board facing a random direction. The goal hex would be randomly generated at any hex other than ones occupied by the snake.  
+</p>
+<p>
+    (Note): additional obstacles may also be generated and placed in random hexes which are not occupied by the snake or the goal.
+</p>
+
 <div class="figure">
-<img src="before-reset.png" />
-<img src="after-reset.png" />
+    <img src="hex-snake-obstacle.jpg" width="500" />
 </div>
 
+<p><b>Movement:</b>
+    The game runs at a fixed but configurable timestep. At each timestep the snake would move to an adjacent hex whose direction is determined by the current heading of the snake head. If the snake occupies more than one hex, each subsequent snake body would move to occupy the hex of its predecessor.
+</p>
+
+<p>
+    When the player presses the left or right arrow key, the snake head's heading would rotate counter-clockwise or clockwise by one hexagonal side respectively.
+</p>
+
+<p><b>Goal:</b>
+    When the snake head reaches the goal hex, a new goal hex is immediately randomly generated in another tile not occupied by the snake or optional obstacles. Additionally, the snake would occupy one more hex by appending one more snake body at the end of the snake in any direction as long as it does not violate board boundaries or obstacles.
+</p>
+
+<div class="figure">
+    <img src="hex-snake-before-goal.jpg" width="300" />
+    <img src="hex-snake-after-goal.jpg" width="300" />
+</div>
+
+<p><b>End:</b>
+    The game ends whenever the snake head would, in the next timestep, occupy a board boundary, board obstacle, or hex currently occupied by the snake body.
+</p>
+<p>
+    Player score is then calculayed by the length of the snake body.
+</p>
+
+<p><b>Board:</b>
+    The board hexagonal grid shall be arranged by pointy topped fashion. Top down 2D view shall be used and all displayed objects shall be flat.
+</p>
+
 <h2>Assets</h2>
-<p>TODO: Provide a link to any preliminary 3D models, sounds, or <a href="https://github.com/ixchow/amoeba-escape/blob/master/tiles.png">textures</a> for the game. Make sure to only link to assets with appropriate licenses.</p>
+<p>Game style shall be abstract and flat geometric shapes so no assets should be necessary.</p>
 
 </body>
 </html>
